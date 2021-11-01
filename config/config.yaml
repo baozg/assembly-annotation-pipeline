@@ -1,62 +1,44 @@
-samples: config/samples.tsv
-units: config/units.tsv
+rawdata:
+    ## rawdata/04.rna-seq/{sample}.R1.fastq.gz
+    RNA:
+        - "potato_stolon"
+    ## rawdata/05.iso-seq/{sample}.subreads.bam
+    ISO:
 
-ref:
-  # ensembl species name
-  species: homo_sapiens
-  # ensembl release
-  release: 98
-  # genome build
-  build: GRCh38
+name : "DM"
+outdir : "/vol1/agis/huangsanwen_group/baozhigui/test/Annotation/Annotation" 
 
-filtering:
-  # Set to true in order to apply machine learning based recalibration of
-  # quality scores instead of hard filtering.
-  vqsr: false
-  hard:
-    # hard filtering as outlined in GATK docs
-    # (https://gatkforums.broadinstitute.org/gatk/discussion/2806/howto-apply-hard-filters-to-a-call-set)
-    snvs:
-      "QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0"
-    indels:
-      "QD < 2.0 || FS > 200.0 || ReadPosRankSum < -20.0"
+parameters:
+    EDTA:
+        ## final step [all,filter,final,anno]
+        step: "all"
+        ## rice,maize,others
+        species: "others"
+        sensitive: 1
+        ## maize corrected TE lib
+        lib:
+        cds:
+        # lib: "maizeTE02052020"
+        # cds: "Zea_mays.B73_RefGen_v4.cdna.all.fa"
 
-processing:
-  remove-duplicates: true
-  # Uncomment and point to a bed file with, e.g., captured regions if necessary,
-  # see https://gatkforums.broadinstitute.org/gatk/discussion/4133/when-should-i-use-l-to-pass-in-a-list-of-intervals.
-  # restrict-regions: captured_regions.bed
-  # If regions are restricted, uncomment this to enlarge them by the given value in order to include
-  # flanking areas.
-  # region-padding: 100
 
-params:
-  gatk:
-    HaplotypeCaller: ""
-    BaseRecalibrator: ""
-    GenotypeGVCFs: ""
-    VariantRecalibrator: ""
-  picard:
-    MarkDuplicates: "REMOVE_DUPLICATES=true"
-  trimmomatic:
-    pe:
-      trimmer:
-        # See trimmomatic manual for adding additional options, e.g. for adapter trimming.
-        - "LEADING:3"
-        - "TRAILING:3"
-        - "SLIDINGWINDOW:4:15"
-        - "MINLEN:36"
-    se:
-      trimmer:
-        # See trimmomatic manual for adding additional options, e.g. for adapter trimming.
-        - "LEADING:3"
-        - "TRAILING:3"
-        - "SLIDINGWINDOW:4:15"
-        - "MINLEN:36"
-  vep:
-    plugins:
-      # Add any plugin from https://www.ensembl.org/info/docs/tools/vep/script/vep_plugins.html
-      # Plugin args can be passed as well, e.g. "LoFtool,path/to/custom/scores.txt".
-      - LoFtool
-    # extra command line arguments (e.g. --sift, see docs)
-    extra: ""
+
+########   software and script   ########
+biosoft:
+    env:
+        module: "source /public/software/modules-4.5.1/init/bash && module use /public/home/baozhigui/software/modulefiles && module purge"
+        mf: "module use /public/home/baozhigui/software/modulefiles"
+        mp: "module purge"
+        asm: "module load asm/1.0"
+    repeat:
+        EDTA: "module load EDTA/1.9.4"
+        #EDTA: "source /public/home/baozhigui/miniconda3/bin/activate EDTA"
+    braker:
+        braker2: "module load braker2/2.1.5"
+        mapping: "source /public/home/baozhigui/miniconda3/bin/activate mapping"
+        #QC: "source /public/home/baozhigui/miniconda3/bin/activate QC"
+        QC: "module load QC/1.0"
+        genemark: "module load GeneMark-ES/4.3.8"
+        augustus_conf: "config"
+    maker:
+        maker2: "module load maker/2.31.11"

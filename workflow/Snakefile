@@ -1,24 +1,17 @@
-include: "rules/common.smk"
-
-
-##### Target rules #####
-
-
+include: "rule/00.commom.smk"
 rule all:
     input:
-        "results/annotated/all.vcf.gz",
-        "results/qc/multiqc.html",
-        "results/plots/depths.svg",
-        "results/plots/allele-freqs.svg",
+        ########### braker #########
+        expand("results/03.annotation/01.ref/softmask.{name}.fa",name=name),
+        expand("results/03.annotation/04.RNA-seq/stringtie/{name}.{sample}.gff3",name=name,sample=Rsamples),
+        expand("results/03.annotation/05.braker_{name}/augustus.hints.gff3",name=name),
+        expand("results/03.annotation/06.maker/round1/{name}.maker.output/{name}.maker.gff",name=name),
+        expand("results/03.annotation/06.maker/round2/{name}.maker.output/{name}.maker.gff",name=name)
 
 
-##### Modules #####
 
-
-include: "rules/ref.smk"
-include: "rules/mapping.smk"
-include: "rules/calling.smk"
-include: "rules/filtering.smk"
-include: "rules/stats.smk"
-include: "rules/qc.smk"
-include: "rules/annotation.smk"
+######## modules ######
+include: "rule/01.EDTA.smk"
+#include: "rule/06.iso-seq.smk"
+include: "rule/02.braker.smk"
+include: "rule/03.maker.smk"
