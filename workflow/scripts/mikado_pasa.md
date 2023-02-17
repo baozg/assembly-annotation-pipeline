@@ -11,29 +11,28 @@ portcullis filter -t 64 portcullis_prep ./portcullis_junc/portcullis.junctions.t
 
 # mikado
 =====list.txt (stringtie + IsoSeq gff3)==========
-C88.V1.S10.gtf  C88.V1.S10      True    1       False   True    True
-C88.V1.S11.gtf  C88.V1.S11      True    1       False   True    True
-C88.V1.S12.gtf  C88.V1.S12      True    1       False   True    True
-C88.V1.S13.gtf  C88.V1.S13      True    1       False   True    True
-C88.V1.S14.gtf  C88.V1.S14      True    1       False   True    True
-C88.V1.S15.gtf  C88.V1.S15      True    1       False   True    True
-C88.V1.S16.gtf  C88.V1.S16      True    1       False   True    True
-C88.V1.S17.gtf  C88.V1.S17      True    1       False   True    True
-C88.V1.S18.gtf  C88.V1.S18      True    1       False   True    True
-C88.V1.S19.gtf  C88.V1.S19      True    1       False   True    True
-C88.V1.S1.gtf   C88.V1.S1       True    1       False   True    True
-C88.V1.S20.gtf  C88.V1.S20      True    1       False   True    True
-C88.V1.S21.gtf  C88.V1.S21      True    1       False   True    True
-C88.V1.S22.gtf  C88.V1.S22      True    1       False   True    True
-C88.V1.S2.gtf   C88.V1.S2       True    1       False   True    True
-C88.V1.S3.gtf   C88.V1.S3       True    1       False   True    True
-C88.V1.S4.gtf   C88.V1.S4       True    1       False   True    True
-C88.V1.S6.gtf   C88.V1.S6       True    1       False   True    True
-C88.V1.S7.gtf   C88.V1.S7       True    1       False   True    True
-C88.V1.S8.gtf   C88.V1.S8       True    1       False   True    True
-C88.V1.S9.gtf   C88.V1.S9       True    1       False   True    True
-isoseq.gff3     pb      True    2       False   False   False
-
+| C88.V1.S10.gtf | C88.V1.S10 | True | 1 | False | True  | True  |
+| C88.V1.S11.gtf | C88.V1.S11 | True | 1 | False | True  | True  |
+| C88.V1.S12.gtf | C88.V1.S12 | True | 1 | False | True  | True  |
+| C88.V1.S13.gtf | C88.V1.S13 | True | 1 | False | True  | True  |
+| C88.V1.S14.gtf | C88.V1.S14 | True | 1 | False | True  | True  |
+| C88.V1.S15.gtf | C88.V1.S15 | True | 1 | False | True  | True  |
+| C88.V1.S16.gtf | C88.V1.S16 | True | 1 | False | True  | True  |
+| C88.V1.S17.gtf | C88.V1.S17 | True | 1 | False | True  | True  |
+| C88.V1.S18.gtf | C88.V1.S18 | True | 1 | False | True  | True  |
+| C88.V1.S19.gtf | C88.V1.S19 | True | 1 | False | True  | True  |
+| C88.V1.S1.gtf  | C88.V1.S1  | True | 1 | False | True  | True  |
+| C88.V1.S20.gtf | C88.V1.S20 | True | 1 | False | True  | True  |
+| C88.V1.S21.gtf | C88.V1.S21 | True | 1 | False | True  | True  |
+| C88.V1.S22.gtf | C88.V1.S22 | True | 1 | False | True  | True  |
+| C88.V1.S2.gtf  | C88.V1.S2  | True | 1 | False | True  | True  |
+| C88.V1.S3.gtf  | C88.V1.S3  | True | 1 | False | True  | True  |
+| C88.V1.S4.gtf  | C88.V1.S4  | True | 1 | False | True  | True  |
+| C88.V1.S6.gtf  | C88.V1.S6  | True | 1 | False | True  | True  |
+| C88.V1.S7.gtf  | C88.V1.S7  | True | 1 | False | True  | True  |
+| C88.V1.S8.gtf  | C88.V1.S8  | True | 1 | False | True  | True  |
+| C88.V1.S9.gtf  | C88.V1.S9  | True | 1 | False | True  | True  |
+| isoseq.gff3    | pb         | True | 2 | False | False | False |
 ======
 ```bash
 mikado configure --list list.txt --reference C88.V1.fa --mode permissive --scoring plant.yaml --copy-scoring plant.yaml -bt uniprot_sprot_plants.fa --junctions portcullis.pass.junctions.bed configuration.yaml
