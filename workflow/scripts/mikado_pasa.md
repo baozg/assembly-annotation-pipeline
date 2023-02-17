@@ -8,7 +8,7 @@ portcullis junc -t 64 ./portcullis_prep
 portcullis filter -t 64 portcullis_prep ./portcullis_junc/portcullis.junctions.tab
 
 # mikado
-#=====list.txt (stringtie + IsoSeq gff3)
+=====list.txt (stringtie + IsoSeq gff3)==========
 C88.V1.S10.gtf  C88.V1.S10      True    1       False   True    True
 C88.V1.S11.gtf  C88.V1.S11      True    1       False   True    True
 C88.V1.S12.gtf  C88.V1.S12      True    1       False   True    True
@@ -31,8 +31,11 @@ C88.V1.S7.gtf   C88.V1.S7       True    1       False   True    True
 C88.V1.S8.gtf   C88.V1.S8       True    1       False   True    True
 C88.V1.S9.gtf   C88.V1.S9       True    1       False   True    True
 isoseq.gff3     pb      True    2       False   False   False
-#======
+
+======
+
 mikado configure --list list.txt --reference C88.V1.fa --mode permissive --scoring plant.yaml --copy-scoring plant.yaml -bt uniprot_sprot_plants.fa --junctions portcullis.pass.junctions.bed configuration.yaml
+mikado prepare --json configuration.yaml
 diamond makedb --in uniprot_sprot_plants.fa --db unipro
 diamond blastx --max-target-seqs 5 --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore ppos btop -q ../mikado_prepared.fasta -d uniprot -o mikado_prepared.blast.tsv -p 64
 
@@ -46,7 +49,7 @@ for i in `seq -w 1 64`;
 done
 
 # mikado
-mikado prepare -p 48 --json configuration.yaml
+
 mikado serialise -p 48 --json-conf configuration.yaml --xml 01.blast/mikado_prepared.blast.tsv --orfs mikado_prepared.transdecoder.orfs.gff3
 mikado pick -p 48 --json-conf configuration.yaml --subloci-out mikado.subloci.gff3
 
