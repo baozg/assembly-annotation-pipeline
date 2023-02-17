@@ -10,7 +10,8 @@ portcullis filter -t 64 portcullis_prep ./portcullis_junc/portcullis.junctions.t
 ```
 
 # mikado
-=====list.txt (stringtie + IsoSeq gff3)==========
+---
+
 | C88.V1.S10.gtf | C88.V1.S10 | True | 1 | False | True  | True  |
 | C88.V1.S11.gtf | C88.V1.S11 | True | 1 | False | True  | True  |
 | C88.V1.S12.gtf | C88.V1.S12 | True | 1 | False | True  | True  |
@@ -33,7 +34,9 @@ portcullis filter -t 64 portcullis_prep ./portcullis_junc/portcullis.junctions.t
 | C88.V1.S8.gtf  | C88.V1.S8  | True | 1 | False | True  | True  |
 | C88.V1.S9.gtf  | C88.V1.S9  | True | 1 | False | True  | True  |
 | isoseq.gff3    | pb         | True | 2 | False | False | False |
-======
+
+---
+
 ```bash
 mikado configure --list list.txt --reference C88.V1.fa --mode permissive --scoring plant.yaml --copy-scoring plant.yaml -bt uniprot_sprot_plants.fa --junctions portcullis.pass.junctions.bed configuration.yaml
 mikado prepare --json configuration.yaml
