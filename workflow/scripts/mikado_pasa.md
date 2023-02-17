@@ -11,7 +11,8 @@ portcullis filter -t 64 portcullis_prep ./portcullis_junc/portcullis.junctions.t
 
 # mikado
 ---
-
+| file | label| strand | score | False | True  | True  |
+|----------------|------------|------|---|-------|-------|-------|
 | C88.V1.S10.gtf | C88.V1.S10 | True | 1 | False | True  | True  |
 | C88.V1.S11.gtf | C88.V1.S11 | True | 1 | False | True  | True  |
 | C88.V1.S12.gtf | C88.V1.S12 | True | 1 | False | True  | True  |
