@@ -14,5 +14,10 @@ Modified from the VGP assembly [VGP tutorial](https://training.galaxyproject.org
 
 ## Annotation
 
+
+- Maker running inside snakemake still have problem since the NSF lock and submit system already included.
+- IsoSeq intergation still in development. For diploid or polyploidy, FLNC mapping is better than the clustering of PacBio pipeline if you have haplotype-resloved assembly.
+
+
 ![Annotation](./images/Annotation.png)
 
