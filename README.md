@@ -15,8 +15,9 @@ Modified from the VGP assembly [VGP tutorial](https://training.galaxyproject.org
 ## Annotation
 
 
-- Maker running inside snakemake still have problem since the NSF lock and submit system already included.
-- IsoSeq intergation still in development. For diploid or polyploidy, FLNC mapping is better than the clustering of PacBio pipeline if you have haplotype-resloved assembly.
+- Maker running inside `snakemake` still have the problem since the NSF lock and submit system is already included.
+- IsoSeq integration is still in development. For diploid or polyploidy, FLNC mapping is better than the clustering of the PacBio pipeline if you have haplotype-resolved assembly.
+- Automatic pipeline always confused the complex gene clusters (metabolic gene clusters / NLR gene clusters), please manually curation it before any further interpretation. `WebApollo` or `IGV-GSAman` could be a good start for manual curation. (https://www.bilibili.com/video/BV1x84y1z7ZW/)
 
 
 ![Annotation](./images/Annotation.png)
