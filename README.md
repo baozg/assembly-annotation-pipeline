@@ -2,6 +2,8 @@
 
 This Snakemake pipeline aims for plant genome assembly with HiFi data and genome annotation with RNA-Seq/IsoSeq.
 
+> [!WARNING]  
+> This is not up-to-date pipeline. Lots of module could be replaced by modern tools. For example, de novo annotation from augustus and other tools could replaced by helixer and ANNEVO. MAKER2/3 is very hard for running in parrlel, EviAnn or EGAPx would be good canidate.
 
 ## Assembly
 
